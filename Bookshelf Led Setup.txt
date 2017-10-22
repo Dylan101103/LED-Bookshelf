@@ -1,0 +1,49 @@
+﻿Bookshelf LED Setup
+
+
+
+Shelf address destination
+0 = 1-20
+1 = 21-41
+2 = 42-62
+3 = 63-83
+4 = 104-124
+
+Triggers
+   Time specific
+   Button control
+   ?- Time
+   ? Effect 
+
+Time
+1 = all shelfs on white for 5 Min
+   15min
+   30min
+   1hour
+   5hour
+   10 hours
+   24 hours
+
+Auto on
+Times On
+7:30AM Sun rise
+
+12:00AM Red
+
+Times Off
+8:30AM 
+
+1:00AM
+
+Effects
+   Rainbow
+   White
+   color fade
+   Random color fade
+
+Colors / Patterns
+White 
+Blue
+Red
+Rainbow 
+Rainbow Motion
