@@ -12,7 +12,7 @@ Shelf address destination
 
 Triggers
    Time specific
-   Button control
+   Button control #Code can be pulled from Neopixel example
    ?- Time
    ? Effect 
 
