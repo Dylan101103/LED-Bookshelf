@@ -27,14 +27,14 @@ Time
 
 Auto on
 Times On
-7:30AM Sun rise
+7:30 Sun rise
 
-12:00AM Red
+23:30 Red
 
 Times Off
-8:30AM 
+9:00
 
-1:00AM
+1:00
 
 Effects
    Rainbow
