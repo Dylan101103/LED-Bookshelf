@@ -14,7 +14,7 @@
 
 #define PIXEL_PIN    3    // Digital IO pin connected to the NeoPixels.
 
-#define PIXEL_COUNT 124   // ???? per cut section or total attached pixels
+#define PIXEL_COUNT 124   // Total attached pixels.
 
 // Parameter 1 = number of pixels in strip,  neopixel stick has 8
 // Parameter 2 = pin number (most are valid)
@@ -23,7 +23,7 @@
 //   NEO_GRB     Pixels are wired for GRB bitstream, correct for neopixel stick
 //   NEO_KHZ400  400 KHz bitstream (e.g. FLORA pixels)
 //   NEO_KHZ800  800 KHz bitstream (e.g. High Density LED strip), correct for neopixel stick
-Adafruit_NeoPixel strip = Adafruit_NeoPixel(PIXEL_COUNT, PIXEL_PIN, NEO_GRB + NEO_KHZ800);
+Adafruit_NeoPixel strip = Adafruit_NeoPixel(PIXEL_COUNT, PIXEL_PIN, NEO_RGBW  + NEO_KHZ800);
 
 bool oldState = HIGH;
 int showType = 0;
@@ -66,17 +66,19 @@ void startShow(int i) {
             break;
     case 3: colorWipe(strip.Color(0, 0, 255), 50);  // Blue
             break;
-    case 4: theaterChase(strip.Color(127, 127, 127), 50); // White
+    case 4: colorWipe(strip.Color(0, 0, 255), 50);  // White   Needs edited 
+            break;    
+    case 5: theaterChase(strip.Color(127, 127, 127), 50); // White
             break;
-    case 5: theaterChase(strip.Color(127,   0,   0), 50); // Red
+    case 6: theaterChase(strip.Color(127,   0,   0), 50); // Red
             break;
-    case 6: theaterChase(strip.Color(  0,   0, 127), 50); // Blue
+    case 7: theaterChase(strip.Color(  0,   0, 127), 50); // Blue
             break;
-    case 7: rainbow(20);
+    case 8: rainbow(20);
             break;
-    case 8: rainbowCycle(20);
+    case 9: rainbowCycle(20);
             break;
-    case 9: theaterChaseRainbow(50);
+    case 10: theaterChaseRainbow(50);
             break;
   }
 }
