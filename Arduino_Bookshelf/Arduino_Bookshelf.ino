@@ -14,7 +14,7 @@
 
 #define PIXEL_PIN    3    // Digital IO pin connected to the NeoPixels.
 
-#define PIXEL_COUNT 124   // ???? per cut section or total
+#define PIXEL_COUNT 124   // ???? per cut section or total attached pixels
 
 // Parameter 1 = number of pixels in strip,  neopixel stick has 8
 // Parameter 2 = pin number (most are valid)
