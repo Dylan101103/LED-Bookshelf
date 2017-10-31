@@ -66,7 +66,7 @@ void startShow(int i) {
             break;
     case 3: colorWipe(strip.Color(0, 0, 255, 0), 50);  // Blue
             break;
-    case 4: colorWipe(strip.Color(0, 0, 255, 0), 50);  // White   Needs edited 
+    case 4: colorWipe(strip.Color(0, 0, 0, 255), 50);  // White
             break;    
     case 5: theaterChase(strip.Color(127, 127, 127, 0), 50); // White
             break;
