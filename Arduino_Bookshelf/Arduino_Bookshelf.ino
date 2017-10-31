@@ -58,21 +58,21 @@ void loop() {
 
 void startShow(int i) {
   switch(i){
-    case 0: colorWipe(strip.Color(0, 0, 0), 50);    // Black/off
+    case 0: colorWipe(strip.Color(0, 0, 0, 0), 50);    // Black/off
             break;
-    case 1: colorWipe(strip.Color(255, 0, 0), 50);  // Red
+    case 1: colorWipe(strip.Color(255, 0, 0, 0), 50);  // Red
             break;
-    case 2: colorWipe(strip.Color(0, 255, 0), 50);  // Green
+    case 2: colorWipe(strip.Color(0, 255, 0, 0), 50);  // Green
             break;
-    case 3: colorWipe(strip.Color(0, 0, 255), 50);  // Blue
+    case 3: colorWipe(strip.Color(0, 0, 255, 0), 50);  // Blue
             break;
-    case 4: colorWipe(strip.Color(0, 0, 255), 50);  // White   Needs edited 
+    case 4: colorWipe(strip.Color(0, 0, 255, 0), 50);  // White   Needs edited 
             break;    
-    case 5: theaterChase(strip.Color(127, 127, 127), 50); // White
+    case 5: theaterChase(strip.Color(127, 127, 127, 0), 50); // White
             break;
-    case 6: theaterChase(strip.Color(127,   0,   0), 50); // Red
+    case 6: theaterChase(strip.Color(127,   0,   0,  0), 50); // Red
             break;
-    case 7: theaterChase(strip.Color(  0,   0, 127), 50); // Blue
+    case 7: theaterChase(strip.Color(  0,   0, 127,  0), 50); // Blue
             break;
     case 8: rainbow(20);
             break;
