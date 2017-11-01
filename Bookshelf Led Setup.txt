@@ -1,4 +1,4 @@
-﻿Bookshelf LED Setup
+Bookshelf LED Setup
 
 
 Shelf address destination
@@ -10,7 +10,7 @@ Shelf address destination
 
 Triggers
    Time specific
-   Button control #Code can be pulled from Neopixel example
+   Button control 
    ?- Time
    ? Effect 
 
@@ -38,8 +38,12 @@ Effects
    Random color fade
 
 Colors / Patterns
- White 
- Blue
+ Off
  Red
+ Green
+ Blue
+ White
+ Theater chase white
  Rainbow 
- Rainbow Motion
+ Rainbow cycle
+ Theater Chase Rainbow
