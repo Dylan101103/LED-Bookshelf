@@ -7,14 +7,17 @@
 
 #include <Adafruit_NeoPixel.h>
 
-#define BUTTON_PIN   2    // Digital IO pin connected to the button.  This will be
+
+#define MODE_PIN   4    // Digital IO pin connected to the button.  This will be
                           // driven with a pull-up resistor so the switch should
                           // pull the pin to ground momentarily.  On a high -> low
                           // transition the button press logic will execute.
+#define TIME_PIN        //Digital IO pin connected to the button for time selction                   
 
-#define PIXEL_PIN    6    // Digital IO pin connected to the NeoPixels.
+#define PIXEL_PIN    3    // Digital IO pin connected to the NeoPixels.
 
-#define PIXEL_COUNT 16
+#define PIXEL_COUNT 124   // Total attached pixels.
+
 
 // Parameter 1 = number of pixels in strip,  neopixel stick has 8
 // Parameter 2 = pin number (most are valid)
@@ -23,27 +26,34 @@
 //   NEO_GRB     Pixels are wired for GRB bitstream, correct for neopixel stick
 //   NEO_KHZ400  400 KHz bitstream (e.g. FLORA pixels)
 //   NEO_KHZ800  800 KHz bitstream (e.g. High Density LED strip), correct for neopixel stick
-Adafruit_NeoPixel strip = Adafruit_NeoPixel(PIXEL_COUNT, PIXEL_PIN, NEO_GRB + NEO_KHZ800);
+
+Adafruit_NeoPixel strip = Adafruit_NeoPixel(PIXEL_COUNT, PIXEL_PIN, NEO_RGBW  + NEO_KHZ400);
 
 bool oldState = HIGH;
 int showType = 0;
 
 void setup() {
-  pinMode(BUTTON_PIN, INPUT_PULLUP);
+
+  pinMode(MODE_PIN, INPUT_PULLUP);
+
   strip.begin();
   strip.show(); // Initialize all pixels to 'off'
 }
 
 void loop() {
   // Get current button state.
-  bool newState = digitalRead(BUTTON_PIN);
+
+  bool newState = digitalRead(MODE_PIN);
+
 
   // Check if state changed from high to low (button press).
   if (newState == LOW && oldState == HIGH) {
     // Short delay to debounce button.
     delay(20);
     // Check if button is still low after debounce.
-    newState = digitalRead(BUTTON_PIN);
+
+    newState = digitalRead(MODE_PIN);
+
     if (newState == LOW) {
       showType++;
       if (showType > 9)
@@ -58,25 +68,29 @@ void loop() {
 
 void startShow(int i) {
   switch(i){
-    case 0: colorWipe(strip.Color(0, 0, 0), 50);    // Black/off
+
+    case 0: colorWipe(strip.Color(0, 0, 0, 0), 50);    // Black/off
             break;
-    case 1: colorWipe(strip.Color(255, 0, 0), 50);  // Red
+    case 1: colorWipe(strip.Color(255, 0, 0, 0), 50);  // Red
             break;
-    case 2: colorWipe(strip.Color(0, 255, 0), 50);  // Green
+    case 2: colorWipe(strip.Color(0, 255, 0, 0), 50);  // Green
             break;
-    case 3: colorWipe(strip.Color(0, 0, 255), 50);  // Blue
+    case 3: colorWipe(strip.Color(0, 0, 255, 0), 50);  // Blue
             break;
-    case 4: theaterChase(strip.Color(127, 127, 127), 50); // White
+    case 4: colorWipe(strip.Color(0, 0, 0, 255), 50);  // White
+            break;    
+    case 5: theaterChase(strip.Color(0, 0, 0, 127), 50); // White
             break;
-    case 5: theaterChase(strip.Color(127,   0,   0), 50); // Red
+    // case 6: theaterChase(strip.Color(127,   0,   0,  0), 50); // Red
             break;
-    case 6: theaterChase(strip.Color(  0,   0, 127), 50); // Blue
+    // case 7: theaterChase(strip.Color(  0,   0, 127,  0), 50); // Blue
             break;
-    case 7: rainbow(20);
+    case 6: rainbow(20);
             break;
-    case 8: rainbowCycle(20);
+    case 7: rainbowCycle(20);
             break;
-    case 9: theaterChaseRainbow(50);
+    case 8: theaterChaseRainbow(50);
+
             break;
   }
 }
