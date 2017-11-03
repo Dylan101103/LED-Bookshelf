@@ -27,7 +27,11 @@
 //   NEO_KHZ400  400 KHz bitstream (e.g. FLORA pixels)
 //   NEO_KHZ800  800 KHz bitstream (e.g. High Density LED strip), correct for neopixel stick
 
-Adafruit_NeoPixel strip = Adafruit_NeoPixel(PIXEL_COUNT, PIXEL_PIN, NEO_RGBW  + NEO_KHZ400);
+Adafruit_NeoPixel strip0 = Adafruit_NeoPixel(PIXEL_COUNT, PIXEL_PIN, NEO_RGBW  + NEO_KHZ400);
+Adafruit_NeoPixel strip1 = Adafruit_NeoPixel(PIXEL_COUNT, PIXEL_PIN, NEO_RGBW  + NEO_KHZ400);
+Adafruit_NeoPixel strip2 = Adafruit_NeoPixel(PIXEL_COUNT, PIXEL_PIN, NEO_RGBW  + NEO_KHZ400);
+Adafruit_NeoPixel strip3 = Adafruit_NeoPixel(PIXEL_COUNT, PIXEL_PIN, NEO_RGBW  + NEO_KHZ400);
+Adafruit_NeoPixel strip4 = Adafruit_NeoPixel(PIXEL_COUNT, PIXEL_PIN, NEO_RGBW  + NEO_KHZ400);
 
 bool oldState = HIGH;
 int showType = 0;
@@ -36,8 +40,16 @@ void setup() {
 
   pinMode(MODE_PIN, INPUT_PULLUP);
 
-  strip.begin();
-  strip.show(); // Initialize all pixels to 'off'
+  strip0.begin();
+  strip1.begin();
+  strip2.begin();
+  strip3.begin();
+  strip4.begin();
+  strip0.show(); // Initialize all pixels to 'off'
+  strip1.show(); // Initialize all pixels to 'off'
+  strip2.show(); // Initialize all pixels to 'off'
+  strip3.show(); // Initialize all pixels to 'off'
+  strip4.show(); // Initialize all pixels to 'off'
 }
 
 void loop() {
