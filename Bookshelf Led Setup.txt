@@ -11,8 +11,8 @@ Shelf address destination
 Triggers
    Time specific
    Button control 
-   Green Button - Time
-   Blue Button - Effect
+   Green Button Pin7 - Time 
+   Blue Button Pin4 - Effect
    Red Button -  Unknown\Extra
 
 Time
