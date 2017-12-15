@@ -8,11 +8,11 @@
 #include <Adafruit_NeoPixel.h>
 
 
-#define MODE_PIN   4    // Digital IO pin connected to the button.  This will be
+#define MODE_PIN   4    // Digital IO pin connected to the button.  This will be  Blue Button
                           // driven with a pull-up resistor so the switch should
                           // pull the pin to ground momentarily.  On a high -> low
                           // transition the button press logic will execute.
-#define TIME_PIN   7     //Digital IO pin connected to the button for time selction   
+#define TIME_PIN   7     //Digital IO pin connected to the button for time selction  Green Button 
 
 #define PIXEL_PIN    3    // Digital IO pin connected to the NeoPixels.
 
