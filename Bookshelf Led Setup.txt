@@ -11,8 +11,9 @@ Shelf address destination
 Triggers
    Time specific
    Button control 
-   ?- Time
-   ? Effect 
+   Green Button - Time
+   Blue Button - Effect
+   Red Button -  Unknown\Extra
 
 Time
  1 = all shelfs on white for 5 Min
