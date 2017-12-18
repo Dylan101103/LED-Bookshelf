@@ -13,6 +13,7 @@ Parts List
  2x Silicone Cicoil Wire Cable - 4-pin 24AWG https://www.adafruit.com/product/1437
  5x Silicone Clips for NeoPixel LED Strips - set of 5 https://www.adafruit.com/product/1644
  2x Arcade/Button Quick-Connect Wire Pair - Set of 10 pairs https://www.adafruit.com/product/1152
+ Most items can be found on this adafruit wishlist http://www.adafruit.com/wishlists/452308
 
 The "Arduino_Bookshelf_Adafruit" sketch is build using the Adafruit NeoPixel libaray.
 
