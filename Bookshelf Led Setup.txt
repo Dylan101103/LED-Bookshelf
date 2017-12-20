@@ -13,7 +13,7 @@ Triggers
    Button control 
    Green Button Pin7 - Time 
    Blue Button Pin4 - Effect
-   Red Button -  Unknown\Extra
+   Red Button -  Unknown\Extra\Reset
 
 Time
  1 = all shelfs on white for 5 Min
@@ -26,11 +26,11 @@ Time
 
  Auto on
   Times On
-   7:30 Sun rise
+   7:30 Sunrise
    23:30 Red
   Times Off
    9:00
-   1:00
+   00:30
 
 Effects
    Rainbow
