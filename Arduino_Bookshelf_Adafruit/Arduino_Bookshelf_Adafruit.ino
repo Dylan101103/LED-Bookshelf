@@ -63,6 +63,35 @@ void setup() {
 }
 
 void loop() {
+  // Check if time equals x and set color or effect
+  /*.DateTime now = rtc.now();
+    if(now.hour() == 8)
+    {
+       // turn the led on
+    }
+*/
+    // Check if time equals x and set color or effect
+  /*.DateTime now = rtc.now();
+    if(now.hour() == 8)
+    {
+       // turn the led on
+    }
+*/
+    // Check if time equals x and set color or effect
+  /*.DateTime now = rtc.now();
+    if(now.hour() == 8)
+    {
+       // turn the led on
+    }
+*/
+    // Check if time equals x and set color or effect
+  /*.DateTime now = rtc.now();
+    if(now.hour() == 8)
+    {
+       // turn the led on
+    }
+*/
+  
   // Get current button state.
 
   bool newState = digitalRead(MODE_PIN);
