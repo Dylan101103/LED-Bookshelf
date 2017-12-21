@@ -62,8 +62,6 @@ void setup() {
   }
 }
 
-}
-
 void loop() {
   // Get current button state.
 
