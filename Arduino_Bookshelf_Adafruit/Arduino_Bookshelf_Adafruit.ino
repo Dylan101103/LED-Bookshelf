@@ -63,21 +63,21 @@ void setup() {
 }
 
 void loop() {
-  // Check if time equals x and set color or effect
+  // Check if time equals MTWTF 7:45 and set all LED's to white
   /*.DateTime now = rtc.now();
     if(now.hour() == 8)
     {
        // turn the led on
     }
 */
-    // Check if time equals x and set color or effect
+    // Check if time equals MTWTF 9:15 and set all LED's to off
   /*.DateTime now = rtc.now();
     if(now.hour() == 8)
     {
-       // turn the led on
+       // turn the led off
     }
 */
-    // Check if time equals x and set color or effect
+    // Check if time equals MTWTF 5:30 and set LED's to ???
   /*.DateTime now = rtc.now();
     if(now.hour() == 8)
     {
@@ -107,7 +107,7 @@ void loop() {
 
     if (newState == LOW) {
       showType++;
-      if (showType > 9)
+      if (showType > 8)
         showType=0;
       startShow(showType);
     }
