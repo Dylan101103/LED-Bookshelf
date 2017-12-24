@@ -23,7 +23,7 @@ char daysOfTheWeek[7][12] = {"Sunday", "Monday", "Tuesday", "Wednesday", "Thursd
 
 #define PIXEL_PIN    3    // Digital IO pin connected to the NeoPixels.
 
-#define PIXEL_COUNT 124   // Total attached pixels.
+#define PIXEL_COUNT 100   // Total attached pixels.
 
 
 // Parameter 1 = number of pixels in strip,  neopixel stick has 8
