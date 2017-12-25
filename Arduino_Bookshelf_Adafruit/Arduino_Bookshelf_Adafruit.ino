@@ -23,7 +23,7 @@ char daysOfTheWeek[7][12] = {"Sunday", "Monday", "Tuesday", "Wednesday", "Thursd
 
 #define PIXEL_PIN    3    // Digital IO pin connected to the NeoPixels.
 
-#define PIXEL_COUNT 100   // Total attached pixels.
+#define PIXEL_COUNT 20   // Total attached pixels.
 
 
 // Parameter 1 = number of pixels in strip,  neopixel stick has 8
@@ -34,7 +34,7 @@ char daysOfTheWeek[7][12] = {"Sunday", "Monday", "Tuesday", "Wednesday", "Thursd
 //   NEO_KHZ400  400 KHz bitstream (e.g. FLORA pixels)
 //   NEO_KHZ800  800 KHz bitstream (e.g. High Density LED strip), correct for neopixel stick
 
-Adafruit_NeoPixel strip = Adafruit_NeoPixel(PIXEL_COUNT, PIXEL_PIN, NEO_RGBW  + NEO_KHZ400);
+Adafruit_NeoPixel strip = Adafruit_NeoPixel(PIXEL_COUNT, PIXEL_PIN, NEO_GRBW  + NEO_KHZ800);
 
 bool oldState = HIGH;
 int showType = 0;
@@ -60,6 +60,8 @@ void setup() {
     // January 21, 2014 at 3am you would call:
     // rtc.adjust(DateTime(2014, 1, 21, 3, 0, 0));
   }
+ // strip.begin();
+ // strip.show();
 }
 
 void loop() {
@@ -77,7 +79,7 @@ void loop() {
        // turn the led off
     }
 */
-    // Check if time equals MTWTF 5:30 and set LED's to ???
+    // Check if time equals MTWTF 5:30 and set LED's to white low
   /*.DateTime now = rtc.now();
     if(now.hour() == 8)
     {
@@ -100,14 +102,14 @@ void loop() {
   // Check if state changed from high to low (button press).
   if (newState == LOW && oldState == HIGH) {
     // Short delay to debounce button.
-    delay(20);
+    delay(10);
     // Check if button is still low after debounce.
 
     newState = digitalRead(MODE_PIN);
 
     if (newState == LOW) {
       showType++;
-      if (showType > 8)
+      if (showType > 7)
         showType=0;
       startShow(showType);
     }
@@ -122,27 +124,27 @@ void startShow(int i) {
 
     case 0: colorWipe(strip.Color(0, 0, 0, 0), 50);    // Black/off
             break;
-    case 1: colorWipe(strip.Color(255, 0, 0, 0), 50);  // Red
+    case 1: colorWipe(strip.Color(255, 0, 0, 0), 5);  // Red
             break;
-    case 2: colorWipe(strip.Color(0, 255, 0, 0), 50);  // Green
+    case 2: colorWipe(strip.Color(0, 255, 0, 0), 25);  // Green
             break;
-    case 3: colorWipe(strip.Color(0, 0, 255, 0), 50);  // Blue
+    case 3: colorWipe(strip.Color(0, 0, 255, 0), 100);  // Blue
             break;
-    case 4: colorWipe(strip.Color(0, 0, 0, 255), 50);  // White
+    case 4: colorWipe(strip.Color(0, 0, 0, 255), 500);  // White
             break;    
-    case 5: theaterChase(strip.Color(0, 0, 0, 127), 50); // White
+   // case 5: theaterChase(strip.Color(0, 0, 0, 127), 50); // White Pauses
             break;
-    // case 6: theaterChase(strip.Color(127,   0,   0,  0), 50); // Red
+   // case 6: theaterChase(strip.Color(127,   0,   0,  0), 50); // Red Pauses
             break;
-    // case 7: theaterChase(strip.Color(  0,   0, 127,  0), 50); // Blue
+   // case 7: theaterChase(strip.Color(  0,   0, 127,  0), 50); // Blue Pauses
             break;
-    case 6: rainbow(20);
+    case 5: rainbow(20); //Pauses
             break;
-    case 7: rainbowCycle(20);
+    case 6: rainbowCycle(20); //Pauses
             break;
-    case 8: theaterChaseRainbow(50);
+    case 7 : theaterChaseRainbow(50); //Works
 
-            break;
+            break; 
   }
 }
 
@@ -180,9 +182,9 @@ void rainbowCycle(uint8_t wait) {
   }
 }
 
-//Theatre-style crawling lights.
+/*Theatre-style crawling lights.
 void theaterChase(uint32_t c, uint8_t wait) {
-  for (int j=0; j<10; j++) {  //do 10 cycles of chasing
+  for (int j=0; j<500; j++) {  //do 10 cycles of chasing
     for (int q=0; q < 3; q++) {
       for (int i=0; i < strip.numPixels(); i=i+3) {
         strip.setPixelColor(i+q, c);    //turn every third pixel on
@@ -197,7 +199,7 @@ void theaterChase(uint32_t c, uint8_t wait) {
     }
   }
 }
-
+*/
 //Theatre-style crawling lights with rainbow effect
 void theaterChaseRainbow(uint8_t wait) {
   for (int j=0; j < 256; j++) {     // cycle all 256 colors in the wheel
@@ -230,3 +232,4 @@ uint32_t Wheel(byte WheelPos) {
   WheelPos -= 170;
   return strip.Color(WheelPos * 3, 255 - WheelPos * 3, 0);
 }
+  
