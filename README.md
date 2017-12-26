@@ -25,6 +25,10 @@ Parts List
  
  2x Arcade/Button Quick-Connect Wire Pair - Set of 10 pairs
  
+ 25Ft of 14-2  Romex
+ 
+ 1x Can of black quick-dry spray paint
+ 
  Most items can be found on this adafruit wishlist http://www.adafruit.com/wishlists/452308
 
 The "Arduino_Bookshelf_Adafruit" sketch is build using the Adafruit NeoPixel libaray.
