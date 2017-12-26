@@ -56,7 +56,26 @@ void setup() {
  // strip.begin();
  // strip.show();
 }
-
+/*
+// NeoPattern Class - derived from the Adafruit_NeoPixel class
+class NeoPatterns : public Adafruit_NeoPixel
+{
+    public:
+ 
+    // Member Variables:  
+    pattern  ActivePattern;  // which pattern is running
+    direction Direction;     // direction to run the pattern
+    
+    unsigned long Interval;   // milliseconds between updates
+    unsigned long lastUpdate; // last update of position
+    
+    uint32_t Color1, Color2;  // What colors are in use
+    uint16_t TotalSteps;  // total number of steps in the pattern
+    uint16_t Index;  // current step within the pattern
+    
+    void (*OnComplete)();  // Callback on completion of pattern
+}
+    */
 void loop() {
   // Check if time equals MTWTF 7:45 and set all LED's to white
   /*.DateTime now = rtc.now();
@@ -111,25 +130,7 @@ void loop() {
   // Set the last button state to the old state.
   oldState = newState;
 }
-/*
-// NeoPattern Class - derived from the Adafruit_NeoPixel class
-class NeoPatterns : public Adafruit_NeoPixel
-{
-    public:
- 
-    // Member Variables:  
-    pattern  ActivePattern;  // which pattern is running
-    direction Direction;     // direction to run the pattern
-    
-    unsigned long Interval;   // milliseconds between updates
-    unsigned long lastUpdate; // last update of position
-    
-    uint32_t Color1, Color2;  // What colors are in use
-    uint16_t TotalSteps;  // total number of steps in the pattern
-    uint16_t Index;  // current step within the pattern
-    
-    void (*OnComplete)();  // Callback on completion of pattern
-    */
+
 void startShow(int i) {
   switch(i){
 
@@ -192,7 +193,17 @@ void rainbowCycle(uint8_t wait) {
     delay(wait);
   }
 }
-
+/*
+    // Initialize for a RainbowCycle
+    void RainbowCycle(uint8_t interval, direction dir = FORWARD)
+    {
+        ActivePattern = RAINBOW_CYCLE;
+        Interval = interval;
+        TotalSteps = 255;
+        Index = 0;
+        Direction = dir;
+    }
+*/
 /*Theatre-style crawling lights.
 void theaterChase(uint32_t c, uint8_t wait) {
   for (int j=0; j<500; j++) {  //do 10 cycles of chasing
