@@ -297,7 +297,7 @@ void StickComplete();
 //  as well as some completion routines
 NeoPatterns Ring1(24, 5, NEO_GRB + NEO_KHZ800, &Ring1Complete);
 NeoPatterns Ring2(16, 6, NEO_GRB + NEO_KHZ800, &Ring2Complete);
-NeoPatterns Stick(16, 7, NEO_GRB + NEO_KHZ800, &StickComplete);
+NeoPatterns Stick(20, 3, NEO_GRB + NEO_KHZ800, &StickComplete);
 
 // Initialize everything and prepare to start
 void setup()
