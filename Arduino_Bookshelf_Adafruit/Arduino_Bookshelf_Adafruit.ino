@@ -8,7 +8,12 @@ RTC_DS3231 rtc;
 
 char daysOfTheWeek[7][12] = {"Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"};
 
-
+/*
+// Pattern types supported:
+enum  pattern { NONE, RAINBOW_CYCLE, THEATER_CHASE, COLOR_WIPE, SCANNER, FADE };
+// Patern directions supported:
+enum  direction { FORWARD, REVERSE };
+ */
 
 #define MODE_PIN   4    // Digital IO pin connected to the button.  This will be  "Blue Button"
                           
@@ -106,7 +111,25 @@ void loop() {
   // Set the last button state to the old state.
   oldState = newState;
 }
-
+/*
+// NeoPattern Class - derived from the Adafruit_NeoPixel class
+class NeoPatterns : public Adafruit_NeoPixel
+{
+    public:
+ 
+    // Member Variables:  
+    pattern  ActivePattern;  // which pattern is running
+    direction Direction;     // direction to run the pattern
+    
+    unsigned long Interval;   // milliseconds between updates
+    unsigned long lastUpdate; // last update of position
+    
+    uint32_t Color1, Color2;  // What colors are in use
+    uint16_t TotalSteps;  // total number of steps in the pattern
+    uint16_t Index;  // current step within the pattern
+    
+    void (*OnComplete)();  // Callback on completion of pattern
+    */
 void startShow(int i) {
   switch(i){
 
