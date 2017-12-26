@@ -2,11 +2,6 @@
 
 #include <RTClib.h>
 
-// This is a demonstration on how to use an input device to trigger changes on your neo pixels.
-// You should wire a momentary push button to connect from ground to a digital IO pin.  When you
-// press the button it will change to a new pixel animation.  Note that you need to press the
-// button once to start the first animation!
-
 #include <Adafruit_NeoPixel.h>
 
 RTC_DS3231 rtc;
@@ -19,17 +14,12 @@ char daysOfTheWeek[7][12] = {"Sunday", "Monday", "Tuesday", "Wednesday", "Thursd
                           
 #define TIME_PIN   7     //Digital IO pin connected to the button for time selction  "Green Button"
 
-#define PIXEL_PIN    3    // Digital IO pin connected to the NeoPixels.
+#define PIXEL_PIN    3    // Digital IO pin connected to the NeoPixels data pin.
 
 #define PIXEL_COUNT 20   // Total attached pixels.
 
-
-// Parameter 1 = number of pixels in strip,  neopixel stick has 8
-// Parameter 2 = pin number (most are valid)
 // Parameter 3 = pixel type flags, add together as needed:
-//   NEO_RGB     Pixels are wired for RGB bitstream
 //   NEO_GRB     Pixels are wired for GRB bitstream, correct for neopixel stick
-//   NEO_KHZ400  400 KHz bitstream (e.g. FLORA pixels)
 //   NEO_KHZ800  800 KHz bitstream (e.g. High Density LED strip), correct for neopixel stick
 
 Adafruit_NeoPixel strip = Adafruit_NeoPixel(PIXEL_COUNT, PIXEL_PIN, NEO_GRBW  + NEO_KHZ800);
