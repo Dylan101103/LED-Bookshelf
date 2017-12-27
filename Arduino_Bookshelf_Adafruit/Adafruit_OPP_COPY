@@ -295,7 +295,7 @@ void Strip1Complete();
 
 // Define some NeoPatterns for the two rings and the stick
 //  as well as some completion routines
-NeoPatterns Strip1(39, 5, NEO_GRB + NEO_KHZ800, &Strip1Complete);  ///////////////////////
+NeoPatterns Strip1(39, 3, NEO_GRBW + NEO_KHZ800, &Strip1Complete);  ///////////////////////
 // NeoPatterns Ring2(16, 6, NEO_GRB + NEO_KHZ800, &Ring2Complete);
 // NeoPatterns Stick(20, 3, NEO_GRB + NEO_KHZ800, &StickComplete);
 
@@ -304,8 +304,8 @@ void setup()
 {
   Serial.begin(115200);
 
-   pinMode(8, INPUT_PULLUP);
-   pinMode(9, INPUT_PULLUP);
+   pinMode(2, INPUT_PULLUP);
+   pinMode(4, INPUT_PULLUP);
     
     // Initialize all the pixelStrips
     Strip1.begin();
