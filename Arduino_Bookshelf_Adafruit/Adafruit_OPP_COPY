@@ -295,7 +295,7 @@ void Strip1Complete();
 
 // Define some NeoPatterns for the two rings and the stick
 //  as well as some completion routines
-NeoPatterns Strip1(39, 3, NEO_GRBW + NEO_KHZ800, &Strip1Complete);  ///////////////////////
+NeoPatterns Strip1(40, 3, NEO_GRBW + NEO_KHZ800, &Strip1Complete);  ///////////////////////
 // NeoPatterns Ring2(16, 6, NEO_GRB + NEO_KHZ800, &Ring2Complete);
 // NeoPatterns Stick(20, 3, NEO_GRB + NEO_KHZ800, &StickComplete);
 
@@ -313,7 +313,7 @@ void setup()
    // Stick.begin();
     
     // Kick off a pattern
-    Strip1.TheaterChase(Strip1.Color(255,255,0), Strip1.Color(0,0,50), 100);
+    Strip1.TheaterChase(Strip1.Color(255,255,0,0), Strip1.Color(0,0,50,0), 100);
     //Ring2.RainbowCycle(3);
    // Ring2.Color1 = Ring1.Color1;
    // Stick.Scanner(Ring1.Color(255,0,0), 55);
@@ -327,7 +327,7 @@ void loop()
     // Ring2.Update();    
     
     // Switch patterns on a button press:
-    if (digitalRead(8) == LOW) // Button #1 pressed
+    if (digitalRead(2) == LOW) // Button #1 pressed
     {
         // Switch Ring1 to FADE pattern
         Strip1.ActivePattern = FADE;
@@ -337,7 +337,7 @@ void loop()
         // Set stick to all red
        // Stick.ColorSet(Stick.Color(255, 0, 0));
     }
-    else if (digitalRead(9) == LOW) // Button #2 pressed
+    else if (digitalRead(4) == LOW) // Button #2 pressed
     {
         // Switch to alternating color wipes on Rings1 and 2
         Strip1.ActivePattern = COLOR_WIPE;
