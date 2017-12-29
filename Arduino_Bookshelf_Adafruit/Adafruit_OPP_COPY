@@ -4,6 +4,18 @@
 
 #include <Adafruit_NeoPixel.h>
 
+RTC_DS3231 rtc;
+
+char daysOfTheWeek[7][12] = {"Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"};
+
+#define MODE_PIN   4    // Digital IO pin connected to the button.  This will be  "Blue Button"
+                          
+#define TIME_PIN   7     //Digital IO pin connected to the button for time selction  "Green Button"
+
+#define PIXEL_PIN    3    // Digital IO pin connected to the NeoPixels data pin.
+
+#define PIXEL_COUNT 20   // Total attached pixels
+
 // Pattern types supported:
 enum  pattern { NONE, RAINBOW_CYCLE, THEATER_CHASE, COLOR_WIPE, SCANNER, FADE };
 // Patern directions supported:
@@ -299,7 +311,7 @@ void Strip1Complete();
 
 // Define some NeoPatterns for the two rings and the stick
 //  as well as some completion routines
-NeoPatterns Strip1(40, 3, NEO_GRBW + NEO_KHZ800, &Strip1Complete);  ///////////////////////
+NeoPatterns Strip1(PIXEL_COUNT, PIXEL_PIN, NEO_GRBW + NEO_KHZ800, &Strip1Complete);  ///////////////////////
 // NeoPatterns Ring2(16, 6, NEO_GRB + NEO_KHZ800, &Ring2Complete);
 // NeoPatterns Stick(20, 3, NEO_GRB + NEO_KHZ800, &StickComplete);
 
@@ -307,9 +319,22 @@ NeoPatterns Strip1(40, 3, NEO_GRBW + NEO_KHZ800, &Strip1Complete);  ////////////
 void setup()
 {
   Serial.begin(115200);
+  
+    if (! rtc.begin()) {
+    Serial.println("Couldn't find RTC");
+    while (1);
+  }
 
-   pinMode(2, INPUT_PULLUP);
-   pinMode(4, INPUT_PULLUP);
+  if (rtc.lostPower()) {
+    Serial.println("RTC lost power, lets set the time!");
+    // following line sets the RTC to the date & time this sketch was compiled
+    rtc.adjust(DateTime(F(__DATE__), F(__TIME__)));
+    // This line sets the RTC with an explicit date & time, for example to set
+    // January 21, 2014 at 3am you would call:
+    // rtc.adjust(DateTime(2014, 1, 21, 3, 0, 0));
+
+   pinMode(MODE_PIN, INPUT_PULLUP);
+   pinMode(TIME_PIN, INPUT_PULLUP);
     
     // Initialize all the pixelStrips
     Strip1.begin();
