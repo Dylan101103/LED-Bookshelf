@@ -48,3 +48,13 @@ Colors / Patterns
  Rainbow 
  Rainbow cycle
  Theater Chase Rainbow
+
+
+
+button wiring 
+1 gnd
+2 button led
+3 button red
+4 button green
+5 button blue
+6
