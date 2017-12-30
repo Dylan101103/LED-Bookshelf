@@ -347,7 +347,7 @@ void setup()
    // Stick.begin();
     
     // Kick off a pattern
-    Strip1.TheaterChase(Strip1.Color(255,255,0,0), Strip1.Color(0,0,50,0), 100);
+    Strip1.SCANNER(Strip1.Color(255,255,0,0), 100);
     //Ring2.RainbowCycle(3);
    // Ring2.Color1 = Ring1.Color1;
    // Stick.Scanner(Ring1.Color(255,0,0), 55);
