@@ -11,9 +11,10 @@ Shelf address destination
 Triggers
    Time specific
    Button control 
-   Green Button Pin7 - Time 
-   Blue Button Pin4 - Effect
+   Blue Button Pin2 - Effect
+   Green Button Pin4 - Time  
    Red Button -  Unknown\Extra\Reset
+   Button LEDS - 5(PWM)
 
 Time
  1 = all shelfs on white for 5 Min
