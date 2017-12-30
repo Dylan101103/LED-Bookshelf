@@ -14,7 +14,9 @@ char daysOfTheWeek[7][12] = {"Sunday", "Monday", "Tuesday", "Wednesday", "Thursd
 
 #define PIXEL_PIN    3    // Digital IO pin connected to the NeoPixels data pin.
 
-#define PIXEL_COUNT 20   // Total attached pixels
+#define PIXEL_COUNT 40   // Total attached pixels
+
+#define BUTTON_LED 5   // Digital IO pin connected to the button leds pin.
 
 // Pattern types supported:
 enum  pattern { NONE, RAINBOW_CYCLE, THEATER_CHASE, COLOR_WIPE, SCANNER, FADE };
@@ -332,9 +334,12 @@ void setup()
     // This line sets the RTC with an explicit date & time, for example to set
     // January 21, 2014 at 3am you would call:
     // rtc.adjust(DateTime(2014, 1, 21, 3, 0, 0));
+  }
 
    pinMode(MODE_PIN, INPUT_PULLUP);
    pinMode(TIME_PIN, INPUT_PULLUP);
+   pinMode(BUTTON_LED, OUTPUT);
+   digitalWrite(BUTTON_LED, HIGH);
     
     // Initialize all the pixelStrips
     Strip1.begin();
@@ -349,8 +354,9 @@ void setup()
 }
 
 // Main loop
-void loop()
-{
+void loop() {
+  
+
     // Update the rings.
     Strip1.Update();
     // Ring2.Update();    
