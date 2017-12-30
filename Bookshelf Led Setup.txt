@@ -51,10 +51,10 @@ Colors / Patterns
 
 
 
-button wiring 
-1 gnd
-2 Button led
-3 Button Blue
-4 Button Green
-5 Button Red
-6
+Button Wiring 
+1 gnd           Green
+2 Button LED    Blue
+3 Button Blue   Purple
+4 Button Green  Gray
+5 Button Red    White
+6               Black
