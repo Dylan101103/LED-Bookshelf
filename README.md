@@ -78,6 +78,9 @@ Effects
    White
    color fade
    Random color fade
+   Scanner
+   Color alternate on shelf
+   preset color on each shelf
 
 Colors / Patterns
  Off
@@ -98,4 +101,4 @@ Button Wiring
 3 Button Blue   Purple
 4 Button Green  Gray
 5 Button Red    White
-6               Black
+6 Not Used      Black
