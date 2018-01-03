@@ -8,9 +8,9 @@ RTC_DS3231 rtc;
 
 char daysOfTheWeek[7][12] = {"Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"};
 
-#define MODE_PIN   4    // Digital IO pin connected to the button.  This will be  "Blue Button"
+#define MODE_PIN   2    // Digital IO pin connected to the button.  This will be  "Blue Button"
                           
-#define TIME_PIN   7     //Digital IO pin connected to the button for time selction  "Green Button"
+#define TIME_PIN   4     //Digital IO pin connected to the button for time selction  "Green Button"
 
 #define PIXEL_PIN    3    // Digital IO pin connected to the NeoPixels data pin.
 
@@ -347,7 +347,7 @@ void setup()
    // Stick.begin();
     
     // Kick off a pattern
-    Strip1.Scanner(Strip1.Color(0,0,0,255), 0);
+    Strip1.Scanner(Strip1.Color(255, 255, 255, 0), 255);
     //Ring2.RainbowCycle(3);
    // Ring2.Color1 = Ring1.Color1;
    // Stick.Scanner(Ring1.Color(255,0,0), 55);
@@ -385,7 +385,8 @@ void loop() {
     {
         // Restore all pattern parameters to normal values
         Strip1.ActivePattern = SCANNER;
-        Strip1.Interval = 25;
+        Strip1.Color1 = 255, 255, 255, 0;
+        Strip1.Interval = 65;
        // Ring2.ActivePattern = RAINBOW_CYCLE;
        // Ring2.TotalSteps = 255;
        // Ring2.Interval = min(10, Ring2.Interval);
