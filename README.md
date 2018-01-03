@@ -35,3 +35,67 @@ The "Arduino_Bookshelf_Adafruit" sketch is build using the Adafruit NeoPixel lib
 
 The "Arduino_Bookshelf_FastLED" sketch is build using the FastLED NeoPixel libaray.
   NOTE:FastLED does NOT currently support adafruit RGBW Neopixlels
+
+Notes:
+
+Bookshelf LED Setup
+
+
+Shelf address destination
+0 = 1-20
+1 = 21-41
+2 = 42-62
+3 = 63-83
+4 = 104-124
+
+Triggers
+   Time specific
+   Button control 
+   Blue Button Pin2 - Effect
+   Green Button Pin4 - Time  
+   Red Button -  Unknown\Extra\Reset
+   Button LEDS - 5(PWM)
+
+Time
+ 1 = all shelfs on white for 5 Min
+   15min
+   30min
+   1hour
+   5hour
+   10 hours
+   24 hours
+
+ Auto on
+  Times On
+   7:30 Sunrise
+   23:30 Red
+  Times Off
+   9:00
+   00:30
+
+Effects
+   Rainbow
+   White
+   color fade
+   Random color fade
+
+Colors / Patterns
+ Off
+ Red
+ Green
+ Blue
+ White
+ Theater chase white
+ Rainbow 
+ Rainbow cycle
+ Theater Chase Rainbow
+
+
+
+Button Wiring 
+1 gnd           Green
+2 Button LED    Blue
+3 Button Blue   Purple
+4 Button Green  Gray
+5 Button Red    White
+6               Black
