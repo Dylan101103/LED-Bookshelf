@@ -1,7 +1,8 @@
 {
   "ExpandedNodes": [
     "",
-    "\\Arduino_Bookshelf_Adafruit"
+    "\\Arduino_Bookshelf_Adafruit",
+    "\\Arduino_Bookshelf_Adafruit\\Libraries"
   ],
   "PreviewInSolutionExplorer": false
 }
