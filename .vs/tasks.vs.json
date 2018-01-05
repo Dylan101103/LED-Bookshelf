@@ -1,0 +1,15 @@
+{
+  "version": "0.2.1",
+  "tasks": [
+    {
+      "taskName": "task-Libraries",
+      "appliesTo": "Arduino_Bookshelf_Adafruit/Libraries/",
+      "type": "launch"
+    },
+    {
+      "taskName": "task-Adafruit_OPP_COPY",
+      "appliesTo": "Arduino_Bookshelf_Adafruit/Adafruit_OPP_COPY.cpp",
+      "type": "launch"
+    }
+  ]
+}
