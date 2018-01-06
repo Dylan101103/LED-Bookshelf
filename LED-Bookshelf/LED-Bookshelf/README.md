@@ -25,80 +25,9 @@ Parts List
  
  2x Arcade/Button Quick-Connect Wire Pair - Set of 10 pairs
  
- 25Ft of 14-2  Romex
- 
- 1x Can of black quick-dry spray paint
- 
  Most items can be found on this adafruit wishlist http://www.adafruit.com/wishlists/452308
 
 The "Arduino_Bookshelf_Adafruit" sketch is build using the Adafruit NeoPixel libaray.
 
 The "Arduino_Bookshelf_FastLED" sketch is build using the FastLED NeoPixel libaray.
   NOTE:FastLED does NOT currently support adafruit RGBW Neopixlels
-
-Notes:
-
-Bookshelf LED Setup
-
-
-Shelf address destination
-0 = 1-20
-1 = 21-41
-2 = 42-62
-3 = 63-83
-4 = 104-124
-
-Triggers
-   Time specific
-   Button control 
-   Blue Button Pin2 - Effect
-   Green Button Pin4 - Time  
-   Red Button -  Unknown\Extra\Reset
-   Button LEDS - 5(PWM)
-
-Time
- 1 = all shelfs on white for 5 Min
-   15min
-   30min
-   1hour
-   5hour
-   10 hours
-   24 hours
-
- Auto on
-  Times On
-   7:30 Sunrise
-   23:30 Red
-  Times Off
-   9:00
-   00:30
-
-Effects
-   Rainbow
-   White
-   color fade
-   Random color fade
-   Scanner
-   Color alternate on shelf
-   preset color on each shelf
-
-Colors / Patterns
- Off
- Red
- Green
- Blue
- White
- Theater chase white
- Rainbow 
- Rainbow cycle
- Theater Chase Rainbow
-
-
-
-Button Wiring 
-1 gnd           Green
-2 Button LED    Blue
-3 Button Blue   Purple
-4 Button Green  Gray
-5 Button Red    White
-6 Not Used      Black
