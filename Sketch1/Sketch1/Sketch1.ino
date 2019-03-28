@@ -5,9 +5,7 @@
 */
 
 #include <Wire.h>
-
 #include <RTClib.h>
-
 #include <Adafruit_NeoPixel.h>
 
 RTC_DS3231 rtc;
@@ -20,12 +18,12 @@ char daysOfTheWeek[7][12] = { "Sunday", "Monday", "Tuesday", "Wednesday", "Thurs
 
 #define PIXEL_PIN    3    // Digital IO pin connected to the NeoPixels data pin.
 
-#define PIXEL_COUNT 60   // Total attached pixels
+#define PIXEL_COUNT 120   // Total attached pixels
 
 #define BUTTON_LED   5   // Digital IO pin connected to the button leds pin.
 
-// Pattern types supported:
-enum  pattern { NONE, RAINBOW_CYCLE, THEATER_CHASE, COLOR_WIPE, SCANNER, FADE };
+// Pattern types supported: Removed  THEATER_CHASE,
+enum  pattern { NONE, RAINBOW_CYCLE, COLOR_WIPE, SCANNER, FADE };
 // Patern directions supported:
 enum  direction { FORWARD, REVERSE };
 
@@ -65,9 +63,9 @@ public:
 			case RAINBOW_CYCLE:
 				RainbowCycleUpdate();
 				break;
-			case THEATER_CHASE:
-				TheaterChaseUpdate();
-				break;
+			//case THEATER_CHASE:
+			//	TheaterChaseUpdate();
+			//	break;
 			case COLOR_WIPE:
 				ColorWipeUpdate();
 				break;
@@ -149,34 +147,34 @@ public:
 	}
 
 	// Initialize for a Theater Chase
-	void TheaterChase(uint32_t color1, uint32_t color2, uint8_t interval, direction dir = FORWARD)
-	{
-		ActivePattern = THEATER_CHASE;
-		Interval = interval;
-		TotalSteps = numPixels();
-		Color1 = color1;
-		Color2 = color2;
-		Index = 0;
-		Direction = dir;
-	}
+	//void TheaterChase(uint32_t color1, uint32_t color2, uint8_t interval, direction dir = FORWARD)
+	//{
+	//	ActivePattern = THEATER_CHASE;
+	//	Interval = interval;
+	//	TotalSteps = numPixels();
+	//	Color1 = color1;
+	//	Color2 = color2;
+	//	Index = 0;
+	//	Direction = dir;
+	//}
 
-	// Update the Theater Chase Pattern
-	void TheaterChaseUpdate()
-	{
-		for (int i = 0; i < numPixels(); i++)
-		{
-			if ((i + Index) % 3 == 0)
-			{
-				setPixelColor(i, Color1);
-			}
-			else
-			{
-				setPixelColor(i, Color2);
-			}
-		}
-		show();
-		Increment();
-	}
+	//// Update the Theater Chase Pattern
+	//void TheaterChaseUpdate()
+	//{
+	//	for (int i = 0; i < numPixels(); i++)
+	//	{
+	//		if ((i + Index) % 3 == 0)
+	//		{
+	//			setPixelColor(i, Color1);
+	//		}
+	//		else
+	//		{
+	//			setPixelColor(i, Color2);
+	//		}
+	//	}
+	//	show();
+	//	Increment();
+	//}
 
 	// Initialize for a ColorWipe
 	void ColorWipe(uint32_t color, uint8_t interval, direction dir = FORWARD)
@@ -329,21 +327,6 @@ uint32_t settime(uint32_t time, DateTime now)
 	timeunix = timeunix + time;
 	return timeunix;
 
-	/*while (timeOff.second > 60)
-	{
-	timeOff.minute++;
-	timeOff.second = timeOff.second - 60;
-	}
-	while (timeOff.minute > 60)
-	{
-	timeOff.hour++;
-	timeOff.minute = timeOff.minute - 60;
-	}
-	while (timeOff.hour > 24)
-	{
-	timeOff.day++;
-	timeOff.hour = timeOff.hour - 24;
-	}*/
 }
 
 //Initializes and declairs the varables needed in loop()
@@ -416,35 +399,48 @@ void loop()
 		lightsOut();
 	}
 
+	// Turn off Led Button Lights
+	//if (now.hour() == )
+
 	// Switch patterns on a button press:
 	if (digitalRead(MODE_PIN) == LOW) // Button #1 pressed
 	{
 		Strip1.ActivePattern = COLOR_WIPE;
 		//Strip1.ColorWipe();
 		Strip1.Color1 = (Strip1.Color(0, 0, 0, 255));
-		Strip1.Interval = 5;
+		//Strip1.Interval = 50;
+
+		//Strip1.ActivePattern = SCANNER;
+		////Strip1.ColorWipe();
+		//Strip1.Color1 = (Strip1.Color(0, 0, 0, 255));
+		//Strip1.Interval = 50;
 
 		//Strip1.ColorSet(Strip1.Color(0, 0, 0, 255));
 		digitalWrite(BUTTON_LED, LOW);
 	}
 	else if (digitalRead(TIME_PIN) == LOW) // Button #2 pressed
 	{
-		pressed2++;
+		++pressed2;
 		switch (pressed2)
 		{
 		case 1:
-			timeOff = settime(5, now);  //1 minute
+			timeOff = settime(25, now);  //1 minute
+			delay(15);
 			break;
 		case 2:
-			timeOff = settime(5, now);   //5 minutes
+			timeOff = settime(30, now);   //5 minutes
+			delay(15);
 			break;
 		case 3:
-			timeOff = settime(5, now);   //10 minutes
+			timeOff = settime(35, now);   //10 minutes
+			delay(15);
 			break;
 		case 4:
-			timeOff = settime(5, now);  // 1 hour
+			timeOff = settime(40, now);  // 1 hour
+			delay(15);
 			break;
 		}
+		delay(20);
 		Serial.print(pressed2);
 		digitalWrite(BUTTON_LED, LOW);
 		// Switch to alternating color wipes on Rings1 and 2
@@ -500,3 +496,22 @@ void Strip1Complete()
 		Strip1.Reverse();
 	}
 }
+
+
+
+//uint32_t red = strip.Color(255, 0, 0, 0);
+//uint32_t orange = strip.Color(255, 165, 0, 0);
+//uint32_t yellow = strip.Color(255, 255, 0, 0);
+//uint32_t green = strip.Color(0, 128, 0, 0);
+//uint32_t blue = strip.Color(0, 0, 255, 0);
+//uint32_t purple = strip.Color(128, 0, 128, 0);
+//
+//red;
+//strip.show();
+
+// Red 255, 0, 0, 0
+// Orange 255, 165, 0, 0
+// Yellow 255, 255, 0, 0
+// Green 0, 128, 0, 0
+// Blue 0, 0, 255, 0
+// Purple 128, 0, 128, 0
